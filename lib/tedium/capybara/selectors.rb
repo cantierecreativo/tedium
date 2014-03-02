@@ -4,7 +4,10 @@ Capybara.add_selector(:input_for_field) do
   label 'input for field'
 
   xpath do |field|
-    XPath.descendant[XPath.attr(:name).contains("[#{field}]")]
+    XPath.descendant[
+      XPath.attr(:name).contains("[#{field}]") &
+      XPath.attr(:type).equals('hidden').inverse
+    ]
   end
 end
 
