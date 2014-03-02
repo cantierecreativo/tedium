@@ -7,26 +7,26 @@ class VirtualDateElement
   end
 
   def set(date)
-    year_node.set(date.year)
-    month_node.set(date.month)
-    day_node.set(date.day)
+    year_element.set(date.year)
+    month_element.set(date.month)
+    day_element.set(date.day)
   end
 
-  def year_node
-    token_node('1i')
+  def year_element
+    token_element('1i')
   end
 
-  def month_node
-    token_node('2i')
+  def month_element
+    token_element('2i')
   end
 
-  def day_node
-    token_node('3i')
+  def day_element
+    token_element('3i')
   end
 
   private
 
-  def token_node(token)
+  def token_element(token)
     root_element.find :input_for_field, "#{attribute_name}(#{token})"
   end
 end

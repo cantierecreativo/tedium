@@ -25,7 +25,7 @@ feature 'New user registration' do
 end
 ```
 
-## SitePrism DSL extensions
+## SitePrism DSL
 
 ### field
 
@@ -47,6 +47,16 @@ fields(*names)
 ```
 
 If you need to declare multiple fields at once, you can use this batch method.
+
+### date_field
+
+```ruby
+date_field(name, attribute_name = name)
+```
+
+Declares the presence of a `date_select` set of selects within the page. Once a `:date_of_birth` date_field is declared, the page object will define a `#date_of_birth_field` method, which will return a `Tedium::VirtualDateElement` instance. Calling `date_of_birth_field.set(Date.new)` will fill in the year, month and day selects with the correct values.
+
+You can access to the specific year select element with `date_of_birth_field.year_element` method (the same applies also for month and day selects).
 
 ### submit_button
 
@@ -87,5 +97,54 @@ def sign_in!(name, email, terms_of_service)
   terms_of_service_field.set(terms_of_service)
   submit!
 end
+```
+
+### action
+
+```ruby
+action(name, role = name)
+```
+
+Declares the presence of an action button/link within the page. Once a `:sign_out` action is declared, the page object will define a `#sign_out_element` method, which will return the corresponding Capybara node and a `#sign_out!` method, which will click on the element.
+
+The selector relies on a `role` attribute present in the action element (see `submit_button` for details). If the role attribute differs from the name you want to give to the page object action, provide it as a second argument.
+
+### actions
+
+```ruby
+actions(*names)
+```
+
+If you need to declare multiple actions at once, you can use this batch method.
+
+### Changes to the Capybara node element #set method
+
+In order to fill in text inputs, selects and checkboxes using the same API, Tedium extends the default `Capybara::Node::Element#set` behaviour, so that it will select the first option matching either the its value or its text:
+
+```html
+<select>
+  <option value='1'>Option 1</option>
+  <option value='2'>Option 2</option>
+  <option value='3'>Option 3</option>
+</select>
+```
+```ruby
+# both will select the second option
+page.find_first('select').set('Option 2') 
+page.find_first('select').set('2')
+```
+
+### has_record?
+
+Every SitePrism page inherits the `has_record?(record)` method, useful in conjunction with the [Rails `div_for` helper](http://devdocs.io/rails/actionview/helpers/recordtaghelper#method-i-div_for):
+
+```erb
+<%= div_for(@person, class: "foo") do %>
+   <%= @person.name %>
+<% end %>
+```
+
+```ruby
+expect(page).to have_record(@person) # this PASSes
 ```
 

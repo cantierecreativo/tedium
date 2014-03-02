@@ -16,9 +16,9 @@ describe 'Given a SitePrism page object with a date field' do
   it 'fills up all the tokens' do
     page_object.date_of_birth_field.set Date.new(1985, 2, 15)
 
-    expect(page_object.date_of_birth_field.year_node.value).to eq '1985'
-    expect(page_object.date_of_birth_field.month_node.value).to eq '2'
-    expect(page_object.date_of_birth_field.day_node.value).to eq '15'
+    expect(page_object.date_of_birth_field.year_element.value).to eq '1985'
+    expect(page_object.date_of_birth_field.month_element.value).to eq '2'
+    expect(page_object.date_of_birth_field.day_element.value).to eq '15'
   end
 end
 
