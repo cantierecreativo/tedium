@@ -118,7 +118,7 @@ actions(*names)
 
 If you need to declare multiple actions at once, you can use this batch method.
 
-### Changes to the Capybara node element #set method
+## Changes to the Capybara node element #set method
 
 In order to fill in text inputs, selects and checkboxes using the same API, Tedium extends the default `Capybara::Node::Element#set` behaviour, so that it will select the first option matching either the its value or its text:
 
@@ -135,7 +135,7 @@ page.find_first('select').set('Option 2')
 page.find_first('select').set('2')
 ```
 
-### has_record?
+## has_record?
 
 Every SitePrism page inherits the `has_record?(record)` method, useful in conjunction with the [Rails `div_for` helper](http://devdocs.io/rails/actionview/helpers/recordtaghelper#method-i-div_for):
 
