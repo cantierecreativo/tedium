@@ -3,7 +3,7 @@
 [![Build Status](https://travis-ci.org/cantierecreativo/tedium.png?branch=master)](https://travis-ci.org/cantierecreativo/tedium)
 [![Coverage Status](https://coveralls.io/repos/cantierecreativo/tedium/badge.png)](https://coveralls.io/r/cantierecreativo/tedium)
 
-Remove the tedium of formulaic form filling with SitePrism and Capybara. Tedium allows you to specify a set of fields and actions to be performed rather than procedurally calling Capybara’s DSL methods on SitePrism elements.
+Remove the tedium of formulaic form filling with [SitePrism](https://github.com/natritmeyer/site_prism) and [Capybara](https://github.com/jnicklas/capybara). Tedium allows you to specify a set of fields and actions to be performed rather than procedurally calling Capybara’s DSL methods on SitePrism elements.
 
 ## Usage
 
