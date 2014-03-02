@@ -159,6 +159,6 @@ Every SitePrism page inherits the `has_record?(record)` method, useful in conjun
 ```
 
 ```ruby
-expect(page).to have_record(@person) # this PASSes
+expect(page).to have_record(@person) # green!
 ```
 
