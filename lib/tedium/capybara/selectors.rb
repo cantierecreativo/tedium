@@ -66,6 +66,7 @@ Capybara.add_selector :option_with_value_or_label do
   label 'option with value or label'
 
   xpath do |value|
+    value = value.to_s
     XPath.descendant(:option)[XPath.text.equals(value) | XPath.attr(:value).equals(value)]
   end
 end
