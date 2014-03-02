@@ -110,6 +110,19 @@ Declares the presence of an action button/link within the page. Once a `:sign_ou
 
 The selector relies on a `role` attribute present in the action element (see `submit_button` for details). If the role attribute differs from the name you want to give to the page object action, provide it as a second argument.
 
+```html
+<a href="/session" data-method="delete" role="sign-out">Sign out</a>
+```
+```ruby
+class DashboardPage < SitePrism::Page
+  action :sign_out
+end
+
+page = DashboardPage.load
+page.sign_out_element # => <Capybara::Node::Element ...>
+page.sign_out! # clicks on the link
+```
+
 ### actions
 
 ```ruby
@@ -120,7 +133,7 @@ If you need to declare multiple actions at once, you can use this batch method.
 
 ## Changes to the Capybara node element #set method
 
-In order to fill in text inputs, selects and checkboxes using the same API, Tedium extends the default `Capybara::Node::Element#set` behaviour, so that it will select the first option matching either the its value or its text:
+In order to be able to fill in text inputs, selects and checkboxes using the same API, Tedium slightly extends the default `Capybara::Node::Element#set` behaviour. If the element is a select, the first option with a value or text that matches the provided value will be selected:
 
 ```html
 <select>
@@ -137,7 +150,7 @@ page.find_first('select').set('2')
 
 ## has_record?
 
-Every SitePrism page inherits the `has_record?(record)` method, useful in conjunction with the [Rails `div_for` helper](http://devdocs.io/rails/actionview/helpers/recordtaghelper#method-i-div_for):
+Every SitePrism page inherits the `has_record?(record)` method, useful in conjunction with the [Rails `div_for` helper](http://devdocs.io/rails/actionview/helpers/recordtaghelper#method-i-div_for) or [Showcase Record trait](https://github.com/stefanoverna/showcase#showcasetraitsrecord):
 
 ```erb
 <%= div_for(@person, class: "foo") do %>
