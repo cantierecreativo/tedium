@@ -1,3 +1,5 @@
+# v0.0.3
+
 # v0.0.2
 
 * add `datetime_field` DSL method to manage Rails `datetime_select` HTML
