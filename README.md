@@ -106,7 +106,7 @@ end
 action(name, role = name)
 ```
 
-Declares the presence of an action button/link within the page. Once a `:sign_out` action is declared, the page object will define a `#sign_out_element` method, which will return the corresponding Capybara node and a `#sign_out!` method, which will click on the element.
+Declares the presence of an action button/link within the page. Once a `:sign_out` action is declared, the page object will define a `#sign_out_element` method, which will return the corresponding Capybara node and a `#sign_out!` method, which will perform a click on the element.
 
 The selector relies on a `role` attribute present in the action element (see `submit_button` for details). If the role attribute differs from the name you want to give to the page object action, provide it as a second argument.
 
