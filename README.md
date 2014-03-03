@@ -65,8 +65,9 @@ You can access to the specific year select element with `date_of_birth_field.yea
 datetime_field(name, attribute_name = name)
 ```
 
-Declares the presence of a `datetime_select` set of selects within the page. See `date_field` definition for details.
-You can access to the specific hour select element with `start_at_field.hour_element` method (the same applies also for minute select).
+Just like `date_field`, declares the presence of a `datetime_select` set of selects within the page.
+
+You can access to the specific hour and minute select elements with `.hour_element` and `.minute_element` method.
 
 ### submit_button
 
