@@ -160,7 +160,7 @@ page.find_first('select').set('2')
 
 ## has_record?
 
-Every SitePrism page inherits the `has_record?(record)` method, useful in conjunction with the [Rails `div_for` helper](http://devdocs.io/rails/actionview/helpers/recordtaghelper#method-i-div_for) or [Showcase Record trait](https://github.com/stefanoverna/showcase#showcasetraitsrecord):
+Every SitePrism page inherits a `:record` SitePrism dynamic element, useful in conjunction with the [Rails `div_for` helper](http://devdocs.io/rails/actionview/helpers/recordtaghelper#method-i-div_for) or [Showcase Record trait](https://github.com/stefanoverna/showcase#showcasetraitsrecord):
 
 ```erb
 <%= div_for(@person, class: "foo") do %>
