@@ -59,6 +59,15 @@ Declares the presence of a `date_select` set of selects within the page. Once a 
 
 You can access to the specific year select element with `date_of_birth_field.year_element` method (the same applies also for month and day selects).
 
+### datetime_field
+
+```ruby
+datetime_field(name, attribute_name = name)
+```
+
+Declares the presence of a `datetime_select` set of selects within the page. See `date_field` definition for details.
+You can access to the specific hour select element with `start_at_field.hour_element` method (the same applies also for minute select).
+
 ### submit_button
 
 ```ruby

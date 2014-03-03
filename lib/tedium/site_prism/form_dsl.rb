@@ -1,4 +1,5 @@
 require "tedium/virtual_date_element"
+require "tedium/virtual_datetime_element"
 
 module Tedium
   module SitePrism
@@ -14,6 +15,12 @@ module Tedium
       def date_field(name, attribute_name = name)
         define_method "#{name}_field" do
           VirtualDateElement.new(root_element_or_page, attribute_name)
+        end
+      end
+
+      def datetime_field(name, attribute_name = name)
+        define_method "#{name}_field" do
+          VirtualDateTimeElement.new(root_element_or_page, attribute_name)
         end
       end
 
