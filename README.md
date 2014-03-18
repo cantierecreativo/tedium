@@ -38,8 +38,7 @@ Declares the presence of a field within the page. The selector used to find the 
 
 If the underlying attribute name differs from the name you want to give to the page object field, provide the attribute name as the second argument.
 
-Once a `:foobar` field is declared, the page object will define a `#foobar_field` method, which will return the corresponding Capybara node.
-element.
+Once a `:foobar` field is declared, the page object will define a `#foobar_field` method, which will return the corresponding Capybara node element.
 
 ### fields
 
@@ -75,7 +74,7 @@ You can access to the specific hour and minute select elements with `.hour_eleme
 submit_button(role = nil)
 ```
 
-Declares the presence of a submit button within the page. It can be either a `input[type=select]` or a `button`. If you pass an argument to the method (ie. `submit_button :sign_in`), the selector will be augmented with a `[role='sign-in']` filter (please note the automatic *dasherization*).
+Declares the presence of a submit button within the page. It can be either a `input[type=select]` or a `button`. If you pass an argument to the method (ie. `submit_button :sign_in`), the selector will be augmented with a `[role='sign-in']` filter (please note the automatic conversion in *snake-case*).
 
 Once the submit button is declared, the page object will define a `#submit!`
 method which will press the button.
