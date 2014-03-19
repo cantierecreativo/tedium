@@ -1,5 +1,6 @@
 # Tedium
 
+[![Gem Version](https://badge.fury.io/rb/tedium.png)](http://badge.fury.io/rb/tedium)
 [![Build Status](https://travis-ci.org/cantierecreativo/tedium.png?branch=master)](https://travis-ci.org/cantierecreativo/tedium)
 [![Coverage Status](https://coveralls.io/repos/cantierecreativo/tedium/badge.png)](https://coveralls.io/r/cantierecreativo/tedium)
 [![Code Climate](https://codeclimate.com/github/cantierecreativo/tedium.png)](https://codeclimate.com/github/cantierecreativo/tedium)
