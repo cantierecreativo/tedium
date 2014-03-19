@@ -5,6 +5,8 @@ module Tedium
   module SitePrism
     module FormDsl
       def field(name, attribute_name = name)
+        @fields ||= []
+        @fields << name
         element "#{name}_field", :input_for_field, attribute_name
       end
 
@@ -32,7 +34,8 @@ module Tedium
         end
       end
 
-      def submission(name, fields)
+      def submission(name, fields = nil)
+        fields ||= @fields
         define_method "#{name}!" do |*args|
           Array(fields).each_with_index do |field, i|
             send("#{field}_field").set(args[i])

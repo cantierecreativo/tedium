@@ -12,7 +12,7 @@ class SignInPage < SitePrism::Page
   fields :name, :email, :terms_of_service
   submit_button
 
-  submission :sign_in, %w(name email terms_of_service)
+  submission :sign_in
 end
 
 feature 'New user registration' do
@@ -82,7 +82,7 @@ method which will press the button.
 ### submission
 
 ```ruby
-submission(name, fields)
+submission(name, fields = nil)
 ```
 
 Declares a submission process.
@@ -94,7 +94,7 @@ class SignInPage < SitePrism::Page
   fields :name, :email, :terms_of_service
   submit_button
 
-  submission :sign_in, %w(name email terms_of_service)
+  submission :sign_in
 end
 ```
 
@@ -106,6 +106,17 @@ def sign_in!(name, email, terms_of_service)
   email_field.set(email)
   terms_of_service_field.set(terms_of_service)
   submit!
+end
+```
+
+You can explicitly change the fields used during the submission (or their order) passing an array of field names as second argument:
+
+```ruby
+class SignInPage < SitePrism::Page
+  fields :name, :email, :terms_of_service
+  submit_button
+
+  submission :sign_in, %w(email name)
 end
 ```
 

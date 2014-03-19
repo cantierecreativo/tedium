@@ -9,6 +9,7 @@ describe 'Given a SitePrism page object with some fields and a submission' do
       submit_button :sign_in
 
       submission :sign_in, %w(email password)
+      submission :implicit_sign_in
     end
   end
 
@@ -28,8 +29,31 @@ describe 'Given a SitePrism page object with some fields and a submission' do
     expect(page_object.submit_button).to be_present
   end
 
-  it 'performs the submission' do
-    page_object.sign_in!('foo@bar.com', 'qux')
+  it 'submits the form' do
+    page_object.submit!
+    expect(page).to have_content 'Submitted!'
+  end
+
+  context do
+    before do
+      page_object.stub(:submit!)
+    end
+
+    it 'performs the submission' do
+      page_object.sign_in!('foo@bar.com', 'qux')
+
+      expect(page_object.email_field.value).to eq 'foo@bar.com'
+      expect(page_object.password_field.value).to eq 'qux'
+      expect(page_object).to have_received(:submit!)
+    end
+
+    it 'performs the submission inferring the fields to fill in' do
+      page_object.implicit_sign_in!('foo@bar.com', 'qux')
+
+      expect(page_object.email_field.value).to eq 'foo@bar.com'
+      expect(page_object.password_field.value).to eq 'qux'
+      expect(page_object).to have_received(:submit!)
+    end
   end
 end
 
