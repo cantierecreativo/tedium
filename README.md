@@ -100,7 +100,17 @@ class SignInPage < SitePrism::Page
 end
 ```
 
-The page object will define a `#sign_in!` method, which will perform the following steps:
+The page object will define a `#sign_in` method, which will perform the following steps:
+
+```ruby
+def sign_in(name, email, terms_of_service)
+  name_field.set(name)
+  email_field.set(email)
+  terms_of_service_field.set(terms_of_service)
+end
+```
+
+And a `#sign_in!` method, which will also submit the form:
 
 ```ruby
 def sign_in!(name, email, terms_of_service)

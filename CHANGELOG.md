@@ -1,3 +1,7 @@
+# v0.0.4
+
+* Submission also declare a non-bang method that just fills in the data without submitting the form
+
 # v0.0.3
 
 * Add implicit submission field inferring feature

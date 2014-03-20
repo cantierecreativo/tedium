@@ -36,10 +36,13 @@ module Tedium
 
       def submission(name, fields = nil)
         fields ||= @fields
-        define_method "#{name}!" do |*args|
+        define_method "#{name}" do |*args|
           Array(fields).each_with_index do |field, i|
             send("#{field}_field").set(args[i])
           end
+        end
+        define_method "#{name}!" do |*args|
+          send(name, *args)
           submit!
         end
       end
