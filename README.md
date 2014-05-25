@@ -1,4 +1,4 @@
-# Tedium
+![Tedium Logo](https://raw.github.com/cantierecreativo/tedium/master/logo.jpg)
 
 [![Gem Version](https://badge.fury.io/rb/tedium.png)](http://badge.fury.io/rb/tedium)
 [![Build Status](https://travis-ci.org/cantierecreativo/tedium.png?branch=master)](https://travis-ci.org/cantierecreativo/tedium)
